@@ -1,13 +1,14 @@
 require './lib/chess_board'
+require 'yaml'
 
 class Chess
-  attr_accessor :board
+  attr_accessor :board, :players, :current_player
 
   include ChessPieces
   def initialize
     @board = ChessBoard.new
     @players = %w[White Black]
-    @is_checked = { 'White' => false, 'Black' => false }
+    @current_player = 'White'
   end
 
   # Tries to get a valid move from the player
@@ -16,6 +17,7 @@ class Chess
     begin
       move = gets.chomp
       move = parse_move(move)
+      raise 'Game Saved' if move.nil?
       raise 'Invalid format or out of board bounds. Try again.' unless move.all? do |pos|
         pos.all? do |x|
           x.between?(0, 7)
@@ -39,6 +41,11 @@ class Chess
 
   # Parses long algebraic to matrix positions
   def parse_move(move)
+    if move.include? 'save '
+      save_game(move.split[1])
+      puts 'Game saved!'
+      return nil
+    end
     move = move.split(' ')
     move.map do |pos|
       pos = pos.split('')
@@ -98,13 +105,85 @@ class Chess
     player == 'White' ? 'Black' : 'White'
   end
 
-  def play
+  def fix_save_start
+    @players = %w[Black White] if @current_player == 'Black'
+  end
+
+  def game_loop
+    fix_save_start
     @players.cycle do |player|
+      @current_player = player
       @board.display
       puts "#{player}'s turn"
       move_piece(player)
       announce_check(other_player(player))
     end
+  end
+
+  def play
+    puts 'Welcome to Chess!'
+    if saved_games?
+      puts 'Would you like to load a saved game? (y/n)'
+      answer = gets.chomp
+      load_game if answer == 'y'
+    end
+    puts "You can save the game at any time by typing 'save <savename>'. Ex: save game1"
+    game_loop
+  end
+
+  private
+
+  def load_data(obj)
+    @board = obj.board
+    @players = obj.players
+    @current_player = obj.current_player
+  end
+
+  def save_game(name)
+    Dir.mkdir 'saves' unless Dir.exist?('saves')
+    File.open("saves/#{name}.yaml", 'w') do |file|
+      file.write(YAML.dump(self))
+    end
+  end
+
+  def get_entries(dir)
+    begin
+      entries = Dir.entries(dir)
+      raise 'No entries found' if entries == ['.', '..']
+    rescue StandardError => e
+      puts e.message
+      nil
+    end
+    entries
+  end
+
+  def get_user_save_input
+    puts 'Which save would you like to load? (Enter the number)'
+    entries = get_entries('saves')
+    begin
+      (entries.each_with_index do |file, index|
+         puts "#{index + 1}. #{file}" unless ['.', '..'].include?(file)
+       end)
+      save_number = gets.chomp.to_i
+      raise 'Invalid save number' if save_number < 1 || save_number > entries.length - 2
+    rescue StandardError => e
+      puts e.message
+      retry
+    end
+    save_number - 1
+  end
+
+  def load_game
+    save_number = get_user_save_input
+    File.open("saves/#{Dir.entries('saves')[save_number]}", 'r') do |file|
+      load_data(YAML.safe_load(file,
+                               permitted_classes: [self.class, ChessBoard, ChessPiece, King, Queen, Rook, Bishop,
+                                                   Knight, Pawn]))
+    end
+  end
+
+  def saved_games?
+    Dir.exist?('saves') && Dir.entries('saves').length > 2
   end
 end
 

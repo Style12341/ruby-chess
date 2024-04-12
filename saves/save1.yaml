@@ -1,0 +1,673 @@
+--- !ruby/object:Chess
+board: !ruby/object:ChessBoard
+  board:
+  - - !ruby/object:Rook
+      symbol: "♜"
+      translations:
+      - - 1
+        - 0
+      - - 0
+        - 1
+      - - 0
+        - -1
+      - - -1
+        - 0
+      eat_translations: []
+      max_multiplier: 8
+      position:
+      - 0
+      - 0
+      has_moved: false
+    - !ruby/object:Knight
+      symbol: "♞"
+      translations:
+      - - 2
+        - 1
+      - - 2
+        - -1
+      - - 1
+        - 2
+      - - 1
+        - -2
+      - - -2
+        - 1
+      - - -2
+        - -1
+      - - -1
+        - 2
+      - - -1
+        - -2
+      eat_translations: []
+      max_multiplier: 1
+      position:
+      - 0
+      - 1
+      has_moved: false
+    - !ruby/object:Bishop
+      symbol: "♝"
+      translations:
+      - - 1
+        - 1
+      - - 1
+        - -1
+      - - -1
+        - 1
+      - - -1
+        - -1
+      eat_translations: []
+      max_multiplier: 8
+      position:
+      - 0
+      - 2
+      has_moved: false
+    - !ruby/object:Queen
+      symbol: "♛"
+      translations:
+      - - 1
+        - 1
+      - - 1
+        - 0
+      - - 1
+        - -1
+      - - 0
+        - 1
+      - - 0
+        - -1
+      - - -1
+        - 1
+      - - -1
+        - 0
+      - - -1
+        - -1
+      eat_translations: []
+      max_multiplier: 8
+      position:
+      - 0
+      - 3
+      has_moved: false
+    - !ruby/object:King
+      symbol: "♚"
+      translations:
+      - - 1
+        - 1
+      - - 1
+        - 0
+      - - 1
+        - -1
+      - - 0
+        - 1
+      - - 0
+        - -1
+      - - -1
+        - 1
+      - - -1
+        - 0
+      - - -1
+        - -1
+      eat_translations: []
+      max_multiplier: 1
+      position:
+      - 0
+      - 4
+      has_moved: false
+      castle_translations:
+      - - 0
+        - 2
+      - - 0
+        - -2
+    - !ruby/object:Bishop
+      symbol: "♝"
+      translations:
+      - - 1
+        - 1
+      - - 1
+        - -1
+      - - -1
+        - 1
+      - - -1
+        - -1
+      eat_translations: []
+      max_multiplier: 8
+      position:
+      - 0
+      - 5
+      has_moved: false
+    - !ruby/object:Knight
+      symbol: "♞"
+      translations:
+      - - 2
+        - 1
+      - - 2
+        - -1
+      - - 1
+        - 2
+      - - 1
+        - -2
+      - - -2
+        - 1
+      - - -2
+        - -1
+      - - -1
+        - 2
+      - - -1
+        - -2
+      eat_translations: []
+      max_multiplier: 1
+      position:
+      - 0
+      - 6
+      has_moved: false
+    - !ruby/object:Rook
+      symbol: "♜"
+      translations:
+      - - 1
+        - 0
+      - - 0
+        - 1
+      - - 0
+        - -1
+      - - -1
+        - 0
+      eat_translations: []
+      max_multiplier: 8
+      position:
+      - 0
+      - 7
+      has_moved: false
+  - - !ruby/object:Pawn
+      symbol: "♟"
+      translations:
+      - - 1
+        - 0
+      eat_translations:
+      - - 1
+        - 1
+      - - 1
+        - -1
+      max_multiplier: 2
+      position:
+      - 1
+      - 0
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - !ruby/object:Pawn
+      symbol: "♟"
+      translations:
+      - - 1
+        - 0
+      eat_translations:
+      - - 1
+        - 1
+      - - 1
+        - -1
+      max_multiplier: 2
+      position:
+      - 1
+      - 1
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - "*"
+    - !ruby/object:Pawn
+      symbol: "♟"
+      translations:
+      - - 1
+        - 0
+      eat_translations:
+      - - 1
+        - 1
+      - - 1
+        - -1
+      max_multiplier: 2
+      position:
+      - 1
+      - 3
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - !ruby/object:Pawn
+      symbol: "♟"
+      translations:
+      - - 1
+        - 0
+      eat_translations:
+      - - 1
+        - 1
+      - - 1
+        - -1
+      max_multiplier: 2
+      position:
+      - 1
+      - 4
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - !ruby/object:Pawn
+      symbol: "♟"
+      translations:
+      - - 1
+        - 0
+      eat_translations:
+      - - 1
+        - 1
+      - - 1
+        - -1
+      max_multiplier: 2
+      position:
+      - 1
+      - 5
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - !ruby/object:Pawn
+      symbol: "♟"
+      translations:
+      - - 1
+        - 0
+      eat_translations:
+      - - 1
+        - 1
+      - - 1
+        - -1
+      max_multiplier: 2
+      position:
+      - 1
+      - 6
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - !ruby/object:Pawn
+      symbol: "♟"
+      translations:
+      - - 1
+        - 0
+      eat_translations:
+      - - 1
+        - 1
+      - - 1
+        - -1
+      max_multiplier: 2
+      position:
+      - 1
+      - 7
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+  - - "*"
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+  - - "*"
+    - "*"
+    - !ruby/object:Pawn
+      symbol: "♟"
+      translations:
+      - - 1
+        - -2
+      eat_translations:
+      - - 1
+        - 1
+      - - 1
+        - -1
+      max_multiplier: 1
+      position:
+      - 3
+      - 2
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+  - - "*"
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+  - - "*"
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+    - "*"
+  - - !ruby/object:Pawn
+      symbol: "♙"
+      translations:
+      - - -1
+        - 0
+      eat_translations:
+      - - -1
+        - 1
+      - - -1
+        - -1
+      max_multiplier: 2
+      position:
+      - 6
+      - 0
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - !ruby/object:Pawn
+      symbol: "♙"
+      translations:
+      - - -1
+        - 0
+      eat_translations:
+      - - -1
+        - 1
+      - - -1
+        - -1
+      max_multiplier: 2
+      position:
+      - 6
+      - 1
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - !ruby/object:Pawn
+      symbol: "♙"
+      translations:
+      - - -1
+        - 0
+      eat_translations:
+      - - -1
+        - 1
+      - - -1
+        - -1
+      max_multiplier: 2
+      position:
+      - 6
+      - 2
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - !ruby/object:Pawn
+      symbol: "♙"
+      translations:
+      - - -1
+        - 0
+      eat_translations:
+      - - -1
+        - 1
+      - - -1
+        - -1
+      max_multiplier: 2
+      position:
+      - 6
+      - 3
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - !ruby/object:Pawn
+      symbol: "♙"
+      translations:
+      - - -1
+        - 0
+      eat_translations:
+      - - -1
+        - 1
+      - - -1
+        - -1
+      max_multiplier: 2
+      position:
+      - 6
+      - 4
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - !ruby/object:Pawn
+      symbol: "♙"
+      translations:
+      - - -1
+        - 0
+      eat_translations:
+      - - -1
+        - 1
+      - - -1
+        - -1
+      max_multiplier: 2
+      position:
+      - 6
+      - 5
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - !ruby/object:Pawn
+      symbol: "♙"
+      translations:
+      - - -1
+        - 0
+      eat_translations:
+      - - -1
+        - 1
+      - - -1
+        - -1
+      max_multiplier: 2
+      position:
+      - 6
+      - 6
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+    - !ruby/object:Pawn
+      symbol: "♙"
+      translations:
+      - - -1
+        - 0
+      eat_translations:
+      - - -1
+        - 1
+      - - -1
+        - -1
+      max_multiplier: 2
+      position:
+      - 6
+      - 7
+      has_moved: false
+      en_passant_right: false
+      en_passant_left: false
+      ate_en_passant: false
+  - - !ruby/object:Rook
+      symbol: "♖"
+      translations:
+      - - 1
+        - 0
+      - - 0
+        - 1
+      - - 0
+        - -1
+      - - -1
+        - 0
+      eat_translations: []
+      max_multiplier: 8
+      position:
+      - 7
+      - 0
+      has_moved: false
+    - !ruby/object:Knight
+      symbol: "♘"
+      translations:
+      - - 2
+        - 1
+      - - 2
+        - -1
+      - - 1
+        - 2
+      - - 1
+        - -2
+      - - -2
+        - 1
+      - - -2
+        - -1
+      - - -1
+        - 2
+      - - -1
+        - -2
+      eat_translations: []
+      max_multiplier: 1
+      position:
+      - 7
+      - 1
+      has_moved: false
+    - !ruby/object:Bishop
+      symbol: "♗"
+      translations:
+      - - 1
+        - 1
+      - - 1
+        - -1
+      - - -1
+        - 1
+      - - -1
+        - -1
+      eat_translations: []
+      max_multiplier: 8
+      position:
+      - 7
+      - 2
+      has_moved: false
+    - !ruby/object:Queen
+      symbol: "♕"
+      translations:
+      - - 1
+        - 1
+      - - 1
+        - 0
+      - - 1
+        - -1
+      - - 0
+        - 1
+      - - 0
+        - -1
+      - - -1
+        - 1
+      - - -1
+        - 0
+      - - -1
+        - -1
+      eat_translations: []
+      max_multiplier: 8
+      position:
+      - 7
+      - 3
+      has_moved: false
+    - !ruby/object:King
+      symbol: "♔"
+      translations:
+      - - 1
+        - 1
+      - - 1
+        - 0
+      - - 1
+        - -1
+      - - 0
+        - 1
+      - - 0
+        - -1
+      - - -1
+        - 1
+      - - -1
+        - 0
+      - - -1
+        - -1
+      eat_translations: []
+      max_multiplier: 1
+      position:
+      - 7
+      - 4
+      has_moved: false
+      castle_translations:
+      - - 0
+        - 2
+      - - 0
+        - -2
+    - !ruby/object:Bishop
+      symbol: "♗"
+      translations:
+      - - 1
+        - 1
+      - - 1
+        - -1
+      - - -1
+        - 1
+      - - -1
+        - -1
+      eat_translations: []
+      max_multiplier: 8
+      position:
+      - 7
+      - 5
+      has_moved: false
+    - !ruby/object:Knight
+      symbol: "♘"
+      translations:
+      - - 2
+        - 1
+      - - 2
+        - -1
+      - - 1
+        - 2
+      - - 1
+        - -2
+      - - -2
+        - 1
+      - - -2
+        - -1
+      - - -1
+        - 2
+      - - -1
+        - -2
+      eat_translations: []
+      max_multiplier: 1
+      position:
+      - 7
+      - 6
+      has_moved: false
+    - !ruby/object:Rook
+      symbol: "♖"
+      translations:
+      - - 1
+        - 0
+      - - 0
+        - 1
+      - - 0
+        - -1
+      - - -1
+        - 0
+      eat_translations: []
+      max_multiplier: 8
+      position:
+      - 7
+      - 7
+      has_moved: false
+players:
+- White
+- Black
+current_player: Black
